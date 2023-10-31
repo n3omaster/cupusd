@@ -18,19 +18,24 @@ export default function Home() {
     // - value of MLC
     // - last 48 values of CUP to create the trending graph
     // - last 48 values of MLC to create the trending graph
+    // const data = getCoinData()
 
-    if (coin === 'CUP') {
-      // If last 24 hours trending is negative, set the color to crimson else set the color to malachite
-      setBgColor('bg-crimson')
-      // format the value to 2 decimals only
-      const number = Number.parseFloat(randomize(261)).toFixed(2)
-      setValue(number)
-    } else {
-      setBgColor('bg-malachite')
-      // format the value to 2 decimals only
-      const number = Number.parseFloat(randomize(1.09, 0.001)).toFixed(3)
-      setValue(number)
-    }
+    const interval = setInterval(() => {
+      if (coin === 'CUP') {
+        // If last 24 hours trending is negative, set the color to crimson else set the color to malachite
+        setBgColor('bg-crimson')
+        // format the value to 2 decimals only
+        const number = Number.parseFloat(randomize(261)).toFixed(2)
+        setValue(number)
+      } else {
+        setBgColor('bg-malachite')
+        // format the value to 2 decimals only
+        const number = Number.parseFloat(randomize(1.09, 0.001)).toFixed(4)
+        setValue(number)
+      }
+    }, 1000)
+
+    return () => { clearInterval(interval) };
 
   }, [coin])
 
