@@ -1,11 +1,12 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { getCoinData } from '../utils/db'
+import { getCoinData } from './utils/db'
+import { randomize } from './utils/helpers'
 
 export default function Home() {
 
   // Two coins, CUP and MLC
-  const [coin, setCoin] = useState('CUP')
+  const [coin, setCoin] = useState('MLC')
   const [modal, setModal] = useState(false)
   const [value, setValue] = useState(0)
   const [bgColor, setBgColor] = useState('bg-crimson')
@@ -17,13 +18,20 @@ export default function Home() {
     // - value of MLC
     // - last 48 values of CUP to create the trending graph
     // - last 48 values of MLC to create the trending graph
+
     if (coin === 'CUP') {
+      // If last 24 hours trending is negative, set the color to crimson else set the color to malachite
       setBgColor('bg-crimson')
-      setValue(261.89)
+      // format the value to 2 decimals only
+      const number = Number.parseFloat(randomize(261)).toFixed(2)
+      setValue(number)
     } else {
       setBgColor('bg-malachite')
-      setValue(1.0907)
+      // format the value to 2 decimals only
+      const number = Number.parseFloat(randomize(1.09, 0.001)).toFixed(3)
+      setValue(number)
     }
+
   }, [coin])
 
   const handleModal = () => {
