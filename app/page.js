@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-
+import { getCoinData } from '../utils/db'
 
 export default function Home() {
 
