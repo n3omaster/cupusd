@@ -1,16 +1,5 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
-  theme: {
-    fontFamily: {
-      sans: ['Barlow', 'sans-serif'],
-    },
-    colors: {
-      'malachite': {
+const colors = {
+    'malachite': {
         DEFAULT: '#53dd6c',
         100: '#0a3312',
         200: '#146623',
@@ -21,8 +10,8 @@ module.exports = {
         700: '#99eba8',
         800: '#bbf2c5',
         900: '#ddf8e2'
-      },
-      'crimson': {
+    },
+    'crimson': {
         DEFAULT: '#d7263d',
         100: '#2b080c',
         200: '#570f19',
@@ -33,8 +22,8 @@ module.exports = {
         700: '#e87d8b',
         800: '#f0a8b2',
         900: '#f7d4d8'
-      },
-      'delft_blue': {
+    },
+    'delft_blue': {
         DEFAULT: '#3a405a',
         100: '#0c0d12',
         200: '#171924',
@@ -45,8 +34,8 @@ module.exports = {
         700: '#7a83aa',
         800: '#a7acc7',
         900: '#d3d6e3'
-      },
-      'ghost_white': {
+    },
+    'ghost_white': {
         DEFAULT: '#fbfbff',
         100: '#000065',
         200: '#0000ca',
@@ -57,8 +46,8 @@ module.exports = {
         700: '#fcfcff',
         800: '#fdfdff',
         900: '#fefeff'
-      },
-      'yale_blue': {
+    },
+    'yale_blue': {
         DEFAULT: '#0d3b66',
         100: '#030c15',
         200: '#05182a',
@@ -69,15 +58,5 @@ module.exports = {
         700: '#2e8ce4',
         800: '#74b2ed',
         900: '#b9d9f6'
-      }
-    },
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-    },
-  },
-  plugins: [],
+    }
 }
