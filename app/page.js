@@ -52,10 +52,10 @@ export default function Home() {
         </div>
 
         <div className="flex-1 flex flex-col items-center justify-center">
-          <p className='text-7xl text-white font-black opacity-70 blur-sm'>
+          <p className='text-7xl  text-white font-black opacity-70 blur-sm'>
             <a href='#' onClick={() => setCoin(coin == "CUP" ? "MLC" : "CUP")}>{coin}</a>
           </p>
-          <h2 className="text-[9rem] font-extrabold">${value}</h2>
+          <h2 className="text-[6rem] sm:text-[6rem] md:text-[10rem] lg:text-[12rem] font-extrabold">${value}</h2>
         </div>
 
         <div className='flex w-100 items-center justify-around'>
