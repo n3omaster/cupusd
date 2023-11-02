@@ -19,7 +19,7 @@ export async function GET() {
           alignItems: 'center',
           justifyContent: 'center',
           flexDirection: 'column',
-          backgroundImage: 'linear-gradient(to bottom, #dbf4ff, #fff1f1)',
+          backgroundColor: '#d7263d',
           fontSize: 80,
           letterSpacing: -2,
           fontWeight: 700,
@@ -28,9 +28,7 @@ export async function GET() {
       >
         <div
           style={{
-            backgroundImage: 'linear-gradient(90deg, rgb(0, 124, 240), rgb(0, 223, 216))',
-            backgroundClip: 'text', '-webkit-background-clip': 'text',
-            color: 'transparent',
+            color: 'white',
             fontSize: 70,
           }}
         >
@@ -38,11 +36,10 @@ export async function GET() {
         </div>
         <div
           style={{
-            backgroundImage: 'linear-gradient(90deg, rgb(121, 40, 202), rgb(255, 0, 128))',
-            backgroundClip: 'text', '-webkit-background-clip': 'text',
-            color: 'transparent',
+            color: 'white',
             display: 'flex',
             fontSize: 180,
+            fontWeight: 900,
           }}
         >
           $ {cup}

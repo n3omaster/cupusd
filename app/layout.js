@@ -1,7 +1,7 @@
 import { Barlow } from 'next/font/google'
 import './globals.css'
 
-const barlow = Barlow({ weight: ['100', '500', '700', '800', '900'], subsets: ['latin'] })
+const barlow = Barlow({ weight: ['500', '800', '900'], subsets: ['latin'] })
 
 export const metadata = {
   title: 'Tasa de cambio CUP y MLC de Cuba en tiempo real',
