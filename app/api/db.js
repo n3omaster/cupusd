@@ -41,6 +41,27 @@ const getCoinData = async () => {
     });
 
     return { cupHistory, mlcHistory };
-};
+}
 
-export { getCoinData };
+// Save the coin history into DB
+const saveCoinData = async (cup, mlc) => {
+
+    // Insert into DB
+    await prisma.exchange.create({
+        data: {
+            coinId: 1,
+            value: cup,
+        },
+    });
+
+    await prisma.exchange.create({
+        data: {
+            coinId: 2,
+            value: mlc,
+        },
+    });
+
+    return { cup, mlc };
+}
+
+export { getCoinData, saveCoinData };
