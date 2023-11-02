@@ -53,6 +53,10 @@ export default function Home() {
           <h2 className="text-[6rem] sm:text-[6rem] md:text-[10rem] lg:text-[12rem] font-extrabold">${value}</h2>
         </div>
 
+        <div className='flex flex-row justify-between'>
+          <p>{new Date().getFullYear()} - Todos los derechos reservados</p>
+          <p>Cambio CUP - Un servicio gratuito de <a href='https://qvapay.com'>QvaPay</a></p>
+        </div>
       </main>
     </>
   )
