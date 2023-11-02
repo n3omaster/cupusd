@@ -8,6 +8,7 @@ export const metadata = {
   description: 'Obtén la tasa de cambio CUP y MLC de Cuba en tiempo real',
   keywords: ['Cambio CUP', 'Tasa CUP USD', 'Cambio CUP Cuba'],
   creator: 'Erich Garcia Cruz',
+  metadataBase: new URL('https://www.cambiocup.com'),
   openGraph: {
     title: 'Tasa de cambio CUP y MLC de Cuba en tiempo real',
     description: 'Obtén la tasa de cambio CUP y MLC de Cuba en tiempo real',
