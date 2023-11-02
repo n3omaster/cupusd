@@ -23,7 +23,15 @@ export const metadata = {
     locale: 'es_ES',
     type: 'website',
   },
-  
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-32x32.png',
+    apple: '/apple-touch-icon.png',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    creator: '@erichgarciacruz',
+  },
 }
 
 export default function RootLayout({ children }) {
