@@ -45,11 +45,7 @@ export default function Home() {
     <>
       <main className={bgColor + " flex min-h-screen flex-col justify-between p-12"}>
 
-        <div className='flex w-100 items-center justify-between'>
-          <div className='font-bold text-2xl items-center'>
-            <h1>CAMBIO {coin}</h1>
-          </div>
-        </div>
+        <h1 className="text-center text-3xl">Tasas de Cambio en Cuba 🇨🇺</h1>
 
         <div className="flex-1 flex flex-col items-center justify-center">
           <p className='text-7xl  text-white font-black opacity-70 blur-sm'>
