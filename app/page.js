@@ -1,12 +1,14 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { randomize, averageData } from './utils/helpers'
+import OneSignal from 'react-onesignal';
 
 export default function Home() {
 
   const [coin, setCoin] = useState('CUP')
   const [value, setValue] = useState(0)
   const [bgColor, setBgColor] = useState('bg-crimson')
+  const [initialized, setInitialized] = useState(false);
 
   // fetch the value of CUP from DB and populate the value and the color based on the trending from the last 24 hours, cache this value for 5 mins
   useEffect(() => {
@@ -36,15 +38,22 @@ export default function Home() {
     }
   }
 
-  const handleModal = () => {
-    setModal(!modal)
+  // Handle the Onesignal clic
+  const handleBellClick = () => {
+    OneSignal.init({ appId: '04dffeef-fbcd-4c21-95fc-eb358400eff2', allowLocalhostAsSecureOrigin: true }).then(() => {
+      setInitialized(true);
+      OneSignal.Slidedown.promptPush();
+    })
   }
 
   return (
     <>
       <main className={bgColor + " flex min-h-screen flex-col justify-between p-12"}>
 
-        <h1 className="text-center text-3xl">Tasas de Cambio en Cuba 🇨🇺</h1>
+        <div className='flex flex-row justify-between'>
+          <h1 className="text-center text-3xl">Tasas de Cambio en Cuba 🇨🇺</h1>
+          <a href='#' onClick={handleBellClick}>🔔</a>
+        </div>
 
         <div className="flex-1 flex flex-col items-center justify-center">
           <p className='text-7xl  text-white font-black opacity-70 blur-sm'>
