@@ -6,9 +6,8 @@ export async function GET() {
 
   const response = await fetch('https://cupusd.vercel.app/api')
   const data = await response.json()
-  const { cupHistory, mlcHistory } = data
-  const cup = cupHistory[0].value
-  const mlc = mlcHistory[0].value
+  const { cupHistory } = data
+  const cup = cupHistory[0].value.toFixed(2)
 
   return new ImageResponse(
     (
