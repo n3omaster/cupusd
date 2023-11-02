@@ -5,7 +5,6 @@ import { randomize, averageData } from './utils/helpers'
 export default function Home() {
 
   const [coin, setCoin] = useState('CUP')
-  const [modal, setModal] = useState(false)
   const [value, setValue] = useState(0)
   const [bgColor, setBgColor] = useState('bg-crimson')
 
@@ -52,10 +51,6 @@ export default function Home() {
             <a href='#' onClick={() => setCoin(coin == "CUP" ? "MLC" : "CUP")}>{coin}</a>
           </p>
           <h2 className="text-[6rem] sm:text-[6rem] md:text-[10rem] lg:text-[12rem] font-extrabold">${value}</h2>
-        </div>
-
-        <div className='flex w-100 items-center justify-around'>
-          <a onClick={handleModal} className=''>¿Cómo funciona?</a>
         </div>
 
       </main>
