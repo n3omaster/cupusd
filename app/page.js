@@ -50,12 +50,12 @@ export default function Home() {
 
         <div className='flex flex-row justify-between'>
           <h1 className="text-center text-3xl">Tasas de Cambio en Cuba 🇨🇺</h1>
-          <a href="#!" onClick={handleBellClick} title='Notificaciones a diario'>🔔</a>
+          <a href="javascript:void(0)" onClick={handleBellClick} title='Notificaciones a diario'>🔔</a>
         </div>
 
         <div className="flex-1 flex flex-col items-center justify-center">
           <p className='text-7xl  text-white font-black opacity-70 blur-sm'>
-            <a href="#!" onClick={() => setCoin(coin == "CUP" ? "MLC" : "CUP")}>{coin}</a>
+            <a href="javascript:void(0)" onClick={() => setCoin(coin == "CUP" ? "MLC" : "CUP")}>{coin}</a>
           </p>
           <h2 className="text-[6rem] sm:text-[6rem] md:text-[10rem] lg:text-[12rem] font-extrabold">${value}</h2>
         </div>
