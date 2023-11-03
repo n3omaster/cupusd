@@ -2,7 +2,7 @@
 // This is to simulate the price fluctuation
 const randomize = (num, deep = 1) => {
     const random = Math.random() * deep
-    return num + random
+    return num - deep + random
 }
 
 // lets creaate a function where gets an array of objects and do the following things:
