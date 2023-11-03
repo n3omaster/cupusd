@@ -15,7 +15,7 @@ export default function Home() {
     getData()
     const interval = setInterval(() => {
       getData()
-    }, 1000)
+    }, 5000)
     return () => { clearInterval(interval) };
   }, [coin])
 
