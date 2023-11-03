@@ -52,7 +52,7 @@ export default function Home() {
 
         <div className='flex flex-row justify-between'>
           <h1 className="text-center text-3xl">Tasas de Cambio en Cuba 🇨🇺</h1>
-          <a href='#' onClick={handleBellClick}>🔔</a>
+          <a href='#' onClick={handleBellClick} title='Notificaciones a diario'>🔔</a>
         </div>
 
         <div className="flex-1 flex flex-col items-center justify-center">
