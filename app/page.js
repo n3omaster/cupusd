@@ -48,22 +48,30 @@ export default function Home() {
     <>
       <main className={bgColor + " flex min-h-screen flex-col justify-between p-12"}>
 
-        <div className='flex flex-row justify-between'>
-          <h1 className="text-center text-3xl">Tasas de Cambio en Cuba 🇨🇺</h1>
-          <a href="javascript:void(0)" onClick={handleBellClick} title='Notificaciones a diario'>🔔</a>
+        <div className='flex flex-row justify-between items-center'>
+          <h1 className="text-center text-2xl">Tasas de Cambio en Cuba</h1>
+          <a href="javascript:void(0)" onClick={handleBellClick} title='Notificaciones a diario' className='sm:visible invisible'>🔔</a>
         </div>
 
         <div className="flex-1 flex flex-col items-center justify-center">
-          <p className='text-7xl  text-white font-black opacity-70 blur-sm'>
-            <a href="javascript:void(0)" onClick={() => setCoin(coin == "CUP" ? "MLC" : "CUP")}>{coin}</a>
-          </p>
+          <div className="flex justify-center items-center">
+            <p className='text-7xl text-white font-black'>
+              <a href="javascript:void(0)" onClick={() => setCoin("CUP")} className={`${coin === "CUP" ? "" : "opacity-40 blur-sm"} mr-4 "text-white"}`}>CUP</a>
+              <a href="javascript:void(0)" onClick={() => setCoin("MLC")} className={`${coin === "MLC" ? "" : "opacity-40 blur-sm"} "text-white"}`}>MLC</a>
+            </p>
+          </div>
           <h2 className="text-[6rem] sm:text-[6rem] md:text-[10rem] lg:text-[12rem] font-extrabold">${value}</h2>
         </div>
 
-        <div className='flex flex-row justify-between'>
-          <p>{new Date().getFullYear()} - Todos los derechos reservados</p>
-          <p>Cambio CUP - Un servicio gratuito de <a href='https://qvapay.com'>QvaPay</a></p>
+        <div className='flex flex-col sm:flex-row justify-between'>
+          <div className='text-center sm:text-left'>
+            <p>{new Date().getFullYear()} - Todos los derechos reservados</p>
+          </div>
+          <div className='text-center sm:text-right'>
+            <p>Cambio CUP - Un servicio gratuito de <a href='https://qvapay.com'>QvaPay</a></p>
+          </div>
         </div>
+
       </main>
     </>
   )

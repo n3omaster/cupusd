@@ -19,3 +19,7 @@
 body {
   color: rgb(var(--foreground-rgb));
 }
+
+main {
+  transition: background-color 0.5s ease;
+}
