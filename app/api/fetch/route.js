@@ -19,13 +19,7 @@ export async function GET(request) {
     })
     const mlcHistory = await response2.json()
 
-    console.log('CUP History Average:', cupHistory.average);
-    console.log('MLC History Average:', mlcHistory.average);
-
     const { cup, mlc } = await saveCoinData(cupHistory.average, mlcHistory.average)
-
-    console.log('Saved CUP Value:', cup);
-    console.log('Saved MLC Value:', mlc);
 
     return Response.json({ cup, mlc })
 }
