@@ -4,24 +4,10 @@ import prisma from '../../lib/prisma';
 // Find out how cache this for about 5 minutes for every request
 const getCoinData = async () => {
 
-    // Obtén el ID del Coin con nombre "CUP"
-    const cupCoin = await prisma.coin.findFirst({
-        where: {
-            name: 'CUP',
-        },
-    });
-
-    // Obtén el ID del Coin con nombre "MLC"
-    const mlcCoin = await prisma.coin.findFirst({
-        where: {
-            name: 'MLC',
-        },
-    });
-
     // Obtén los últimos 48 valores de cambio donde coin es "CUP"
     const cupHistory = await prisma.exchange.findMany({
         where: {
-            coinId: cupCoin.id,
+            coinId: 1,
         },
         orderBy: {
             updated_at: 'desc',
@@ -32,7 +18,7 @@ const getCoinData = async () => {
     // Obtén los últimos 48 valores de cambio donde coin es "MLC"
     const mlcHistory = await prisma.exchange.findMany({
         where: {
-            coinId: mlcCoin.id,
+            coinId: 2,
         },
         orderBy: {
             updated_at: 'desc',
@@ -45,16 +31,15 @@ const getCoinData = async () => {
 
 // Save the coin history into DB
 const saveCoinData = async (cup, mlc) => {
-
-    // Insert into DB
-    await prisma.exchange.create({
+    
+    const rspCup = await prisma.exchange.create({
         data: {
             coinId: 1,
             value: cup,
         },
     });
-
-    await prisma.exchange.create({
+    
+    const rspMlc = await prisma.exchange.create({
         data: {
             coinId: 2,
             value: mlc,
