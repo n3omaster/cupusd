@@ -27,12 +27,13 @@ export default function Home() {
       const { first, average } = averageData(data.cupHistory)
       const number = Number.parseFloat(randomize(first.value, 0.5)).toFixed(2)
       setValue(number)
+      number < average ? setBgColor('bg-malachite') : setBgColor('bg-crimson')
     } else {
       const { first, average } = averageData(data.mlcHistory)
       const number = Number.parseFloat(randomize(first.value, 0.01)).toFixed(4)
       setValue(number)
+      number < average ? setBgColor('bg-malachite') : setBgColor('bg-crimson')
     }
-    number < average ? setBgColor('bg-malachite') : setBgColor('bg-crimson')
   }
 
   // Handle the Onesignal clic
