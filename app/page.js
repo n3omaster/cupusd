@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { randomize, averageData } from './utils/helpers'
 import OneSignal from 'react-onesignal';
 
-
 export default function Home() {
   
   const [coin, setCoin] = useState('CUP')
@@ -21,7 +20,12 @@ export default function Home() {
   }, [coin])
 
   const getData = async () => {
-    const response = await fetch('/api')
+    const response = await fetch('/api', {
+      headers: {
+        'Cache-Control': 'no-cache'
+      },
+      next: { revalidate: 300 }
+    })
     const data = await response.json()
 
     if (coin === 'CUP') {

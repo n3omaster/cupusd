@@ -7,7 +7,7 @@ export async function GET(request) {
         headers: {
             'Cache-Control': 'no-cache'
         },
-        next: { revalidate: 10 }
+        next: { revalidate: 0 }
     })
     const cupHistory = await response.json()
 
@@ -15,7 +15,7 @@ export async function GET(request) {
         headers: {
             'Cache-Control': 'no-cache'
         },
-        next: { revalidate: 10 }
+        next: { revalidate: 0 }
     })
     const mlcHistory = await response2.json()
 
