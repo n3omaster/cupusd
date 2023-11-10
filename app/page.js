@@ -10,7 +10,6 @@ export default function Home() {
   const [coin, setCoin] = useState('CUP')
   const [value, setValue] = useState(0)
   const [bgColor, setBgColor] = useState('bg-crimson')
-  const [initialized, setInitialized] = useState(false);
 
   // fetch the value of CUP from DB and populate the value and the color based on the trending from the last 24 hours, cache this value for 5 mins
   useEffect(() => {
