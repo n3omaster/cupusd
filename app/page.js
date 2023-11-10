@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import { randomize, averageData } from './utils/helpers'
 import OneSignal from 'react-onesignal';
 
+OneSignal.init({ appId: '04dffeef-fbcd-4c21-95fc-eb358400eff2' });
+
 export default function Home() {
 
   const [coin, setCoin] = useState('CUP')
@@ -36,21 +38,12 @@ export default function Home() {
     }
   }
 
-  // Handle the Onesignal clic
-  const handleBellClick = () => {
-    OneSignal.init({ appId: '04dffeef-fbcd-4c21-95fc-eb358400eff2', allowLocalhostAsSecureOrigin: true }).then(() => {
-      setInitialized(true);
-      OneSignal.Slidedown.promptPush();
-    })
-  }
-
   return (
     <>
       <main className={bgColor + " flex min-h-screen flex-col justify-between p-12"}>
 
         <div className='flex flex-row justify-between items-center'>
           <h1 className="text-center text-2xl">Tasas de Cambio en Cuba</h1>
-          <a href="javascript:void(0)" onClick={handleBellClick} title='Notificaciones a diario' className='sm:visible invisible'>🔔</a>
         </div>
 
         <div className="flex-1 flex flex-col items-center justify-center">
