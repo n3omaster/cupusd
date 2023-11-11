@@ -1,8 +1,7 @@
+import { NextResponse } from 'next/server';
 import { saveCoinData } from '../db.js'
 
-// How to allow only if the request come from the same domain?
-export async function GET(request) {
-
+export async function GET() {
     const response = await fetch('https://qvapay.com/api/p2p/completed_pairs_average?coin=BANK_CUP', {
         headers: {
             'Cache-Control': 'no-cache'
@@ -21,5 +20,5 @@ export async function GET(request) {
 
     const { cup, mlc } = await saveCoinData(cupHistory.average, mlcHistory.average)
 
-    return Response.json({ cup, mlc })
+    return NextResponse.json({ cup, mlc })
 }
