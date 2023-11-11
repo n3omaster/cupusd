@@ -19,6 +19,7 @@ export default function Home() {
     return () => { clearInterval(interval) };
   }, [coin])
 
+  
   const getData = async () => {
     const response = await fetch('/api', {
       headers: {
