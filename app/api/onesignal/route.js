@@ -1,37 +1,33 @@
 import { NextResponse } from 'next/server';
-import * as OneSignal from '@onesignal/node-onesignal';
+// import * as OneSignal from '@onesignal/node-onesignal';
+const sdk = require('api')('@onesignal/v11.0#7g0slo7voi53');
 
 export async function GET(request) {
 
     const ONESIGNAL_APP_ID = '04dffeef-fbcd-4c21-95fc-eb358400eff2';
     const ONESIGNAL_API_KEY = 'NDlmZTJjZGEtMmFiNS00N2RlLWEzMjctMzRhZWM4MjgwMTRm';
 
-    const app_key_provider = {
-        getToken() {
-            return ONESIGNAL_API_KEY;
-        }
-    };
+    sdk.createNotification({
+        app_id: ONESIGNAL_APP_ID,
+        included_segments: ['Subscribed Users'],
+        // external_id: 'string',
+        contents: {
+            en: 'We are at $267.12 (CUP) and $1.11 (MLC). Follow the trend of CUP and MLC prices at CambioCUP.com 👌',
+            es: 'Estamos en $267.12 (CUP) y $1.11 (MLC). Sigue la tendencia de los precios del CUP y MLC en CambioCUP.com 👌'
+        },
+        name: 'DAILY_RATE',
+        // send_after: 'string',
+        delayed_option: 'timezone',
+        delivery_time_of_day: '9:00AM',
+        throttle_rate_per_minute: 0,
+        // custom_data: 'string'
+    }, {
+        authorization: 'Basic ' + ONESIGNAL_API_KEY
+    })
+        .then(({ data }) => console.log("DATA:", data))
+        .catch(err => console.error("ERR:", err));
 
-    const configuration = OneSignal.createConfiguration({
-        authMethods: {
-            app_key: {
-                tokenProvider: app_key_provider
-            }
-        }
-    });
-    const client = new OneSignal.DefaultApi(configuration);
-
-    const notification = new OneSignal.Notification();
-    notification.app_id = ONESIGNAL_APP_ID;
-    notification.included_segments = ['Engaged Users'];
-    notification.name = 'Sigue el mercado monetario en CambioCUP.com 👌';
-    notification.url = 'https://www.cambiocup.com';
-    notification.contents = {
-        en: "Estamos en $267.12 (CUP) y $1.11 (MLC). Sigue la tendencia de los precios del CUP y MLC en CambioCUP.com 👌"
-    };
-    const { id, errors, recipients } = await client.createNotification(notification);
-
-    return NextResponse.json({ id })
+    return NextResponse.json({ sdk })
 }
 
 export const revalidate = 0; 
