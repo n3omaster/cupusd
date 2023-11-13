@@ -23,7 +23,9 @@ export async function GET() {
 
     const { cup, mlc } = await saveCoinData(cupHistory.average, mlcHistory.average)
 
-    return NextResponse.json({ cup, mlc })
+    const randomNumber = Math.random() * 1000
+
+    return NextResponse.json({ cup, mlc, randomNumber })
 }
 
 export const fetchCache = 'force-no-store';
