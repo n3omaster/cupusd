@@ -1,10 +1,10 @@
 import { ImageResponse } from 'next/og'
-
 export const runtime = 'edge'
+export const revalidate = 0; 
 
 export async function GET() {
 
-  const response = await fetch('https://cupusd.vercel.app/api')
+  const response = await fetch('https://www.cambiocup.com/api')
   const data = await response.json()
   const { cupHistory } = data
   const cup = cupHistory[0].value.toFixed(2)
