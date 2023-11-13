@@ -1,13 +1,14 @@
 import { NextResponse } from 'next/server';
 import { saveCoinData } from '../db.js'
+const { signal } = new AbortController()
 
 export async function GET() {
     const response = await fetch('https://qvapay.com/api/p2p/completed_pairs_average?coin=BANK_CUP', {
         headers: {
             'Cache-Control': 'no-cache'
         },
-        cache: 'no-store',
-        next: { revalidate: 0 }
+        next: { revalidate: 0 }.
+        signal
     })
     const cupHistory = await response.json()
 
@@ -15,8 +16,8 @@ export async function GET() {
         headers: {
             'Cache-Control': 'no-cache'
         },
-        cache: 'no-store',
-        next: { revalidate: 0 }
+        next: { revalidate: 0 },
+        signal
     })
     const mlcHistory = await response2.json()
 
