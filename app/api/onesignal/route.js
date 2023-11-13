@@ -1,4 +1,3 @@
-// Daily Onesignal push notification
 import { NextResponse } from 'next/server';
 import * as OneSignal from '@onesignal/node-onesignal';
 
@@ -24,18 +23,15 @@ export async function GET(request) {
 
     const notification = new OneSignal.Notification();
     notification.app_id = ONESIGNAL_APP_ID;
-    notification.included_segments = ['Subscribed Users'];
+    notification.included_segments = ['Engaged Users'];
     notification.name = 'Sigue el mercado monetario en CambioCUP.com 👌';
     notification.url = 'https://www.cambiocup.com';
     notification.contents = {
         en: "Estamos en $267.12 (CUP) y $1.11 (MLC). Sigue la tendencia de los precios del CUP y MLC en CambioCUP.com 👌"
     };
-    notification.headings = {
-        en: "Sigue la tendencia de los precios del CUP y MLC en CambioCUP.com 👌"
-    };
     const { id, errors, recipients } = await client.createNotification(notification);
 
-    return NextResponse.json({ notification, client, id, errors, recipients })
+    return NextResponse.json({ id })
 }
 
 export const revalidate = 0; 
