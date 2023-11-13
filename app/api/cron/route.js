@@ -6,6 +6,7 @@ export async function GET() {
         headers: {
             'Cache-Control': 'no-cache'
         },
+        cache: 'no-store',
         next: { revalidate: 0 }
     })
     const cupHistory = await response.json()
@@ -14,6 +15,7 @@ export async function GET() {
         headers: {
             'Cache-Control': 'no-cache'
         },
+        cache: 'no-store',
         next: { revalidate: 0 }
     })
     const mlcHistory = await response2.json()
@@ -22,3 +24,5 @@ export async function GET() {
 
     return NextResponse.json({ cup, mlc })
 }
+
+export const fetchCache = 'force-no-store';
