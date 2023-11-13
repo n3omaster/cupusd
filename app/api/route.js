@@ -6,5 +6,7 @@ export async function GET(request) {
     const headers = {
         'Cache-Control': 'no-cache, no-store'
     };
-    return new Response(JSON.stringify({ cupHistory, mlcHistory }), { headers, next: { revalidate: 10 } });
+    return new Response(JSON.stringify({ cupHistory, mlcHistory }), { headers, next: { revalidate: 0 } });
 }
+
+export const revalidate = 0; 
