@@ -10,6 +10,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@onesignal/node-onesignal": "^2.0.1-beta2",
     "@prisma/client": "^5.5.2",
     "next": "14.0.0",
     "react": "^18",
