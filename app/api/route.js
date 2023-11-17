@@ -1,6 +1,5 @@
 import { getCoinData } from './db.js'
 
-// How to allow only if the request come from the same domain?
 export async function GET(request) {
     const { cupHistory, mlcHistory } = await getCoinData();
     const headers = {
@@ -9,4 +8,4 @@ export async function GET(request) {
     return new Response(JSON.stringify({ cupHistory, mlcHistory }), { headers, next: { revalidate: 0 } });
 }
 
-export const revalidate = 0; 
+export const revalidate = 60; 
