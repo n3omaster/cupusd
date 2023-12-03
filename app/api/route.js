@@ -8,4 +8,4 @@ export async function GET(request) {
     return new Response(JSON.stringify({ cupHistory, mlcHistory }), { headers, next: { revalidate: 0 } });
 }
 
-export const revalidate = 60; 
+export const revalidate = 360; 
