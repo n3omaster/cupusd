@@ -4,22 +4,11 @@ import { randomize, averageData } from './utils/helpers'
 import OneSignal from 'react-onesignal';
 
 export default function Home() {
-  
+
   const [coin, setCoin] = useState('CUP')
   const [value, setValue] = useState(0)
   const [bgColor, setBgColor] = useState('bg-crimson')
 
-  // fetch the value of CUP from DB and populate the value and the color based on the trending from the last 24 hours, cache this value for 5 mins
-  useEffect(() => {
-    getData()
-    OneSignal.init({ appId: '04dffeef-fbcd-4c21-95fc-eb358400eff2' });
-    const interval = setInterval(() => {
-      getData()
-    }, 5000)
-    return () => { clearInterval(interval) };
-  }, [coin])
-
-  
   const getData = async () => {
     const response = await fetch('/api', {
       headers: {
@@ -41,6 +30,17 @@ export default function Home() {
       number < average ? setBgColor('bg-malachite') : setBgColor('bg-crimson')
     }
   }
+
+  // fetch the value of CUP from DB and populate the value and the color based on the trending from the last 24 hours, cache this value for 5 mins
+  useEffect(() => {
+    getData()
+    OneSignal.init({ appId: '04dffeef-fbcd-4c21-95fc-eb358400eff2' });
+    const interval = setInterval(() => {
+      getData()
+    }, 5000)
+    return () => { clearInterval(interval) };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coin])
 
   return (
     <>
