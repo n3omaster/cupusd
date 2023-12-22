@@ -18,7 +18,7 @@ export async function GET() {
     })
     const mlcHistory = await response2.json()
 
-    const { cup, mlc } = await saveCoinData(cupHistory.average, mlcHistory.average)
+    const { cup, mlc } = await saveCoinData((cupHistory.median_buy + cupHistory.median_sell) / 2, (mlcHistory.median_buy + mlcHistory.median_sell) / 2)
 
     const randomNumber = Math.random() * 1000
 
