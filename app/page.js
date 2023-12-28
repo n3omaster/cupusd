@@ -14,7 +14,7 @@ export default function Home() {
       headers: {
         'Cache-Control': 'no-cache'
       },
-      next: { revalidate: 300 }
+      next: { revalidate: 60 * 60 }
     })
     const data = await response.json()
 
