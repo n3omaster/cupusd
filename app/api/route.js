@@ -1,4 +1,4 @@
-import { getCoinData } from './db.js'
+import { getCoinData } from '@/lib/supabase'
 
 export async function GET(request) {
     const { cupHistory, mlcHistory } = await getCoinData()
