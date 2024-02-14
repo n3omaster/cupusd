@@ -38,14 +38,12 @@ export default function Home() {
     const interval = setInterval(() => {
       getData()
     }, 5000)
-    return () => { clearInterval(interval) };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => { clearInterval(interval) }
   }, [coin])
 
   return (
     <>
       <main className={bgColor + " flex min-h-screen flex-col justify-between p-12"}>
-
         <div className='flex flex-row justify-between items-center'>
           <h1 className="text-center text-2xl">Tasas de Cambio en Cuba</h1>
         </div>
@@ -68,7 +66,6 @@ export default function Home() {
             <p>Cambio CUP - Un servicio gratuito de <a href='https://qvapay.com'>QvaPay</a></p>
           </div>
         </div>
-
       </main>
     </>
   )

@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 export const runtime = 'edge'
-export const revalidate = 0; 
+export const revalidate = 0;
 
 export async function GET() {
 
@@ -46,9 +46,6 @@ export async function GET() {
         </div>
       </div>
     ),
-    {
-      width: 1200,
-      height: 600,
-    }
+    { width: 1200, height: 600 }
   )
 }
