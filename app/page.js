@@ -1,7 +1,8 @@
 'use client'
+
+import OneSignal from 'react-onesignal'
 import { useState, useEffect } from 'react'
 import { randomize, averageData } from './utils/helpers'
-import OneSignal from 'react-onesignal';
 
 export default function Home() {
 
@@ -14,7 +15,7 @@ export default function Home() {
       headers: {
         'Cache-Control': 'no-cache'
       },
-      next: { revalidate: 60 * 60 }
+      next: { revalidate: 5 * 60 }
     })
     const data = await response.json()
 
