@@ -10,6 +10,7 @@ const randomize = (num, deep = 1) => {
 // take the rest of the objects and create a average of the object.value
 // return both values
 const averageData = (arr) => {
+    
     const [first, ...rest] = arr
 
     // handle if the array is only one element
