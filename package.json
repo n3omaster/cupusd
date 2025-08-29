@@ -3,7 +3,7 @@
   "version": "0.2.1",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -11,15 +11,15 @@
   },
   "dependencies": {
     "@prisma/client": "^5.5.2",
-    "next": "14.0.0",
-    "react": "^18",
-    "react-dom": "^18",
+    "next": "15.5.2",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
     "react-onesignal": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10",
     "eslint": "^8",
-    "eslint-config-next": "14.0.0",
+    "eslint-config-next": "15.5.2",
     "postcss": "^8",
     "prisma": "^5.5.2",
     "tailwindcss": "^3"
