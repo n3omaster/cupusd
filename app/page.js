@@ -12,12 +12,7 @@ export default function Home() {
 
 	const getData = async () => {
 
-		const response = await fetch('/api', {
-			headers: {
-				'Cache-Control': 'no-cache'
-			},
-			next: { revalidate: 5 * 60 }
-		})
+		const response = await fetch('/api', { headers: { 'Cache-Control': 'no-cache' }, next: { revalidate: 5 * 60 } })
 		const data = await response.json()
 
 		if (coin === 'CUP') {
