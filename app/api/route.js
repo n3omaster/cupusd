@@ -1,11 +1,10 @@
 import { getCoinData } from './db.js'
+import { NextResponse } from 'next/server'
 
-export async function GET(request) {
-    const { cupHistory, mlcHistory } = await getCoinData();
-    const headers = {
-        'Cache-Control': 'no-cache, no-store'
-    };
-    return new Response(JSON.stringify({ cupHistory, mlcHistory }), { headers, next: { revalidate: 60 * 60 } });
+// Get the data for the home page
+export async function GET() {
+    const { cupHistory, mlcHistory, clasicaHistory } = await getCoinData()
+    return NextResponse.json({ cupHistory, mlcHistory, clasicaHistory }, { next: { revalidate: 60 * 60 } })
 }
 
-export const revalidate = 60 * 60; 
+export const revalidate = 60 * 60
