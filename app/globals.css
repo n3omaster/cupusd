@@ -1,6 +1,89 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --font-*: initial;
+  --font-sans: Barlow, sans-serif;
+
+  --color-*: initial;
+  --color-malachite-100: #0a3312;
+  --color-malachite-200: #146623;
+  --color-malachite-300: #1e9935;
+  --color-malachite-400: #28cc46;
+  --color-malachite-500: #53dd6c;
+  --color-malachite-600: #77e48b;
+  --color-malachite-700: #99eba8;
+  --color-malachite-800: #bbf2c5;
+  --color-malachite-900: #ddf8e2;
+  --color-malachite: #53dd6c;
+
+  --color-crimson-100: #2b080c;
+  --color-crimson-200: #570f19;
+  --color-crimson-300: #821725;
+  --color-crimson-400: #ad1f32;
+  --color-crimson-500: #d7263d;
+  --color-crimson-600: #e05265;
+  --color-crimson-700: #e87d8b;
+  --color-crimson-800: #f0a8b2;
+  --color-crimson-900: #f7d4d8;
+  --color-crimson: #d7263d;
+
+  --color-delft_blue-100: #0c0d12;
+  --color-delft_blue-200: #171924;
+  --color-delft_blue-300: #232636;
+  --color-delft_blue-400: #2e3348;
+  --color-delft_blue-500: #3a405a;
+  --color-delft_blue-600: #565f86;
+  --color-delft_blue-700: #7a83aa;
+  --color-delft_blue-800: #a7acc7;
+  --color-delft_blue-900: #d3d6e3;
+  --color-delft_blue: #3a405a;
+
+  --color-ghost_white-100: #000065;
+  --color-ghost_white-200: #0000ca;
+  --color-ghost_white-300: #3030ff;
+  --color-ghost_white-400: #9595ff;
+  --color-ghost_white-500: #fbfbff;
+  --color-ghost_white-600: #fbfbff;
+  --color-ghost_white-700: #fcfcff;
+  --color-ghost_white-800: #fdfdff;
+  --color-ghost_white-900: #fefeff;
+  --color-ghost_white: #fbfbff;
+
+  --color-yale_blue-100: #030c15;
+  --color-yale_blue-200: #05182a;
+  --color-yale_blue-300: #08243e;
+  --color-yale_blue-400: #0b3053;
+  --color-yale_blue-500: #0d3b66;
+  --color-yale_blue-600: #1764ad;
+  --color-yale_blue-700: #2e8ce4;
+  --color-yale_blue-800: #74b2ed;
+  --color-yale_blue-900: #b9d9f6;
+  --color-yale_blue: #0d3b66;
+
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;

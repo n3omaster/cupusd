@@ -53,8 +53,8 @@ export default function Home() {
         <div className="flex-1 flex flex-col items-center justify-center">
           <div className="flex justify-center items-center">
             <p className='text-7xl text-white font-black'>
-              <a href="javascript:void(0)" onClick={() => setCoin("CUP")} className={`${coin === "CUP" ? "" : "opacity-40 blur-sm"} mr-4 "text-white"}`}>CUP</a>
-              <a href="javascript:void(0)" onClick={() => setCoin("MLC")} className={`${coin === "MLC" ? "" : "opacity-40 blur-sm"} "text-white"}`}>MLC</a>
+              <a href="javascript:void(0)" onClick={() => setCoin("CUP")} className={`${coin === "CUP" ? "" : "opacity-40 blur-xs"} mr-4 "text-white"}`}>CUP</a>
+              <a href="javascript:void(0)" onClick={() => setCoin("MLC")} className={`${coin === "MLC" ? "" : "opacity-40 blur-xs"} "text-white"}`}>MLC</a>
             </p>
           </div>
           <h2 className="text-[6rem] sm:text-[6rem] md:text-[10rem] lg:text-[12rem] font-extrabold">${value}</h2>
