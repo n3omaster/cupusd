@@ -1,5 +1,5 @@
-import { saveCoinData } from '../db.js'
 import { NextResponse } from 'next/server'
+import { saveCoinData } from '@/lib/supabase'
 
 // Get the average buy and sell prices for the last 24 hours for BANK_CUP and BANK_MLC and CLASICA
 export async function GET() {

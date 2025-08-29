@@ -1,4 +1,4 @@
-import { getCoinData } from './db.js'
+import { getCoinData } from '@/lib/supabase'
 import { NextResponse } from 'next/server'
 
 // Get the data for the home page
