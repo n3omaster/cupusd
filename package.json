@@ -1,28 +1,28 @@
 {
-  "name": "cambiocupmlc",
-  "version": "0.2.1",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "postinstall": "prisma generate"
-  },
-  "dependencies": {
-    "@prisma/client": "^5.5.2",
-    "@supabase/supabase-js": "^2.56.1",
-    "next": "15.5.2",
-    "react": "19.1.1",
-    "react-dom": "19.1.1",
-    "react-onesignal": "^3.0.1"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.12",
-    "eslint": "^8",
-    "eslint-config-next": "15.5.2",
-    "postcss": "^8",
-    "prisma": "^5.5.2",
-    "tailwindcss": "^4.1.12"
-  }
+	"name": "cambiocupmlc",
+	"version": "0.2.1",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbopack",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"postinstall": "prisma generate"
+	},
+	"dependencies": {
+		"@prisma/client": "^5.5.2",
+		"@supabase/supabase-js": "^2.56.1",
+		"next": "15.5.2",
+		"react": "19.1.1",
+		"react-dom": "19.1.1",
+		"react-onesignal": "^3.0.1"
+	},
+	"devDependencies": {
+		"@tailwindcss/postcss": "^4.1.12",
+		"eslint": "^8",
+		"eslint-config-next": "15.5.2",
+		"postcss": "^8",
+		"prisma": "^5.5.2",
+		"tailwindcss": "^4.1.12"
+	}
 }

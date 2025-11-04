@@ -45,28 +45,33 @@ export default function Home() {
 
 	return (
 		<>
-			<main className={bgColor + " flex min-h-screen flex-col justify-between p-12"}>
-				<div className='flex flex-row justify-between items-center'>
-					<h1 className="text-center text-2xl">Tasas de Cambio en Cuba</h1>
-				</div>
+			<main className={bgColor + " flex min-h-screen flex-col justify-between p-4 sm:p-8 md:p-12"}>
 
-				<div className="flex-1 flex flex-col items-center justify-center">
-					<div className="flex justify-center items-center">
-						<p className='text-7xl text-white font-black'>
-							<a href="javascript:void(0)" onClick={() => setCoin("CUP")} className={`${coin === "CUP" ? "" : "opacity-40 blur-sm"} mr-4 "text-white"}`}>CUP</a>
-							<a href="javascript:void(0)" onClick={() => setCoin("MLC")} className={`${coin === "MLC" ? "" : "opacity-40 blur-sm"} mr-4 "text-white"}`}>MLC</a>
-							<a href="javascript:void(0)" onClick={() => setCoin("CLASICA")} className={`${coin === "CLASICA" ? "" : "opacity-40 blur-sm"} "text-white"}`}>CLASICA</a>
+				<h1 className="text-center sm:text-left text-lg sm:text-xl md:text-2xl">Tasas de Cambio en Cuba</h1>
+
+				<div className="flex-1 flex flex-col items-center justify-center px-2 sm:px-4">
+					<div className="flex justify-center items-center flex-wrap gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6">
+						<p className='text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white font-black flex flex-wrap justify-center items-center gap-2 sm:gap-3 md:gap-4'>
+							<a href="javascript:void(0)" onClick={() => setCoin("CUP")} className={`${coin === "CUP" ? "" : "opacity-40 blur-sm"} text-white transition-all hover:opacity-80 whitespace-nowrap`}>
+								CUP
+							</a>
+							<a href="javascript:void(0)" onClick={() => setCoin("MLC")} className={`${coin === "MLC" ? "" : "opacity-40 blur-sm"} text-white transition-all hover:opacity-80 whitespace-nowrap`}>
+								MLC
+							</a>
+							<a href="javascript:void(0)" onClick={() => setCoin("CLASICA")} className={`${coin === "CLASICA" ? "" : "opacity-40 blur-sm"} text-white transition-all hover:opacity-80 whitespace-nowrap`}>
+								CLASICA
+							</a>
 						</p>
 					</div>
-					<h2 className="text-[6rem] sm:text-[6rem] md:text-[10rem] lg:text-[12rem] font-extrabold">${value}</h2>
+					<h2 className="text-7xl sm:text-8xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-extrabold text-white text-center break-all">${value}</h2>
 				</div>
 
-				<div className='flex flex-col sm:flex-row justify-between'>
+				<div className='flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 text-xs sm:text-sm md:text-base'>
 					<div className='text-center sm:text-left'>
 						<p>{new Date().getFullYear()} - Todos los derechos reservados</p>
 					</div>
 					<div className='text-center sm:text-right'>
-						<p>Cambio CUP - Un servicio gratuito de <a href='https://qvapay.com'>QvaPay</a></p>
+						<p>Cambio CUP - Un servicio gratuito de <a href='https://qvapay.com' className='underline hover:opacity-80'>QvaPay</a></p>
 					</div>
 				</div>
 			</main>
