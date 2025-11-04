@@ -60,16 +60,14 @@ export default function Home() {
 		return () => window.removeEventListener('keydown', handleEscape)
 	}, [showModal])
 
-	const iframeCode = `<iframe src="${typeof window !== 'undefined' ? window.location.origin : 'https://www.cambiocup.com'}" width="100%" height="600" frameborder="0" allowfullscreen></iframe>`
+	const iframeCode = `<iframe src="${typeof window !== 'undefined' ? window.location.origin : 'https://www.cambiocup.com'}" width="100%" height="600" frameborder="0" allowfullscreen style="border-radius: 5px;"></iframe>`
 
 	const copyToClipboard = async () => {
 		try {
 			await navigator.clipboard.writeText(iframeCode)
 			setCopied(true)
 			setTimeout(() => setCopied(false), 2000)
-		} catch (err) {
-			console.error('Error al copiar:', err)
-		}
+		} catch (err) { console.error('Error al copiar:', err) }
 	}
 
 	return (
