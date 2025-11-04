@@ -1,10 +1,8 @@
-import { getCoinData } from '@/lib/supabase'
 import { NextResponse } from 'next/server'
+import { getCoinData } from '@/lib/supabase'
 
 // Get the data for the home page
 export async function GET() {
-    const { cupHistory, mlcHistory, clasicaHistory } = await getCoinData()
-    return NextResponse.json({ cupHistory, mlcHistory, clasicaHistory }, { next: { revalidate: 60 * 60 } })
+	const { cupHistory, mlcHistory, clasicaHistory } = await getCoinData()
+	return NextResponse.json({ cupHistory, mlcHistory, clasicaHistory })
 }
-
-export const revalidate = 60 * 60
