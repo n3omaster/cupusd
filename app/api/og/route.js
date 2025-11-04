@@ -1,8 +1,5 @@
 import { ImageResponse } from 'next/og'
 
-export const runtime = 'edge'
-export const revalidate = 0;
-
 // Get the OG image for the home page
 export async function GET() {
 

@@ -9,6 +9,8 @@ export default function Home() {
 	const [coin, setCoin] = useState('CUP')
 	const [value, setValue] = useState(0)
 	const [bgColor, setBgColor] = useState('bg-crimson')
+	const [showModal, setShowModal] = useState(false)
+	const [copied, setCopied] = useState(false)
 
 	const getData = async () => {
 
@@ -43,12 +45,45 @@ export default function Home() {
 		return () => { clearInterval(interval) }
 	}, [coin])
 
+	// Cerrar modal con tecla Escape
+	useEffect(() => {
+		const handleEscape = (e) => {
+			if (e.key === 'Escape' && showModal) {
+				setShowModal(false)
+			}
+		}
+		window.addEventListener('keydown', handleEscape)
+		return () => window.removeEventListener('keydown', handleEscape)
+	}, [showModal])
+
+	const iframeCode = `<iframe src="${typeof window !== 'undefined' ? window.location.origin : 'https://www.cambiocup.com'}" width="100%" height="600" frameborder="0" allowfullscreen></iframe>`
+
+	const copyToClipboard = async () => {
+		try {
+			await navigator.clipboard.writeText(iframeCode)
+			setCopied(true)
+			setTimeout(() => setCopied(false), 2000)
+		} catch (err) {
+			console.error('Error al copiar:', err)
+		}
+	}
+
 	return (
 		<>
 			<main className={bgColor + " flex min-h-screen flex-col justify-between p-4 sm:p-8 md:p-12"}>
-
-				<h1 className="text-center sm:text-left text-lg sm:text-xl md:text-2xl">Tasas de Cambio en Cuba</h1>
-
+				<div className='flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 text-xs sm:text-sm md:text-base'>
+					<h1 className="text-center sm:text-left text-lg sm:text-xl md:text-2xl">Tasas de Cambio en Cuba</h1>
+					<button
+						onClick={() => setShowModal(true)}
+						className="text-white hover:opacity-80 transition-opacity p-2 rounded-lg bg-white/10 backdrop-blur-sm hover:bg-white/20"
+						aria-label="Código iframe"
+						title="Obtener código iframe"
+					>
+						<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+						</svg>
+					</button>
+				</div>
 				<div className="flex-1 flex flex-col items-center justify-center px-2 sm:px-4">
 					<div className="flex justify-center items-center flex-wrap gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6">
 						<p className='text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white font-black flex flex-wrap justify-center items-center gap-2 sm:gap-3 md:gap-4'>
@@ -67,14 +102,58 @@ export default function Home() {
 				</div>
 
 				<div className='flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 text-xs sm:text-sm md:text-base'>
-					<div className='text-center sm:text-left'>
-						<p>{new Date().getFullYear()} - Todos los derechos reservados</p>
-					</div>
-					<div className='text-center sm:text-right'>
-						<p>Cambio CUP - Un servicio gratuito de <a href='https://qvapay.com' className='underline hover:opacity-80'>QvaPay</a></p>
-					</div>
+					<div className='text-center sm:text-left'><p>{new Date().getFullYear()} - Todos los derechos reservados</p></div>
+					<div className='text-center sm:text-right'><p>Cambio CUP - Un servicio gratuito de <a href='https://qvapay.com' className='underline hover:opacity-80'>QvaPay</a></p></div>
 				</div>
 			</main>
+
+			{/* Modal */}
+			{showModal && (
+				<div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setShowModal(false)}>
+					<div className="bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative z-10 opacity-100" style={{ backgroundColor: '#ffffff' }} onClick={(e) => e.stopPropagation()} >
+						<div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center z-20" style={{ backgroundColor: '#ffffff' }}>
+							<h3 className="text-xl font-bold" style={{ color: '#111827' }}>Código HTML para iframe</h3>
+							<button onClick={() => setShowModal(false)} className="hover:opacity-70 transition-colors" style={{ color: '#6b7280' }} aria-label="Cerrar modal">
+								<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+								</svg>
+							</button>
+						</div>
+						<div className="p-6" style={{ backgroundColor: '#ffffff' }}>
+							<p className="mb-4 text-sm" style={{ color: '#111827' }}>
+								Copia y pega este código HTML en tu página web para insertar este widget:
+							</p>
+							<div className="relative">
+								<pre className="border border-gray-200 p-4 rounded-lg overflow-x-auto text-sm" style={{ backgroundColor: '#f9fafb', color: '#111827' }}>
+									<code style={{ color: '#111827' }}>{iframeCode}</code>
+								</pre>
+								<button onClick={copyToClipboard} className="absolute top-2 right-2 hover:opacity-90 px-4 py-2 rounded text-sm font-medium transition-colors flex items-center gap-2" style={{ backgroundColor: '#111827', color: '#ffffff' }}>
+									{copied ? (
+										<>
+											<svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+											</svg>
+											¡Copiado!
+										</>
+									) : (
+										<>
+											<svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+											</svg>
+											Copiar
+										</>
+									)}
+								</button>
+							</div>
+							<div className="mt-4 p-4 rounded-lg border border-gray-200" style={{ backgroundColor: '#f9fafb' }}>
+								<p className="text-sm" style={{ color: '#111827' }}>
+									<strong>💡 Tip:</strong> Puedes ajustar el ancho (width) y alto (height) del iframe según tus necesidades.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
 		</>
 	)
 }
