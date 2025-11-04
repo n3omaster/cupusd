@@ -2,9 +2,13 @@
 
 import OneSignal from 'react-onesignal'
 import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { randomize, averageData } from './utils/helpers'
 
 export default function Home() {
+
+	const searchParams = useSearchParams()
+	const noCode = searchParams.get('nocode') === 'true'
 
 	const [coin, setCoin] = useState('CUP')
 	const [value, setValue] = useState(0)
@@ -73,16 +77,18 @@ export default function Home() {
 			<main className={bgColor + " flex min-h-screen flex-col justify-between p-4 sm:p-8 md:p-12"}>
 				<div className='flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 text-xs sm:text-sm md:text-base'>
 					<h1 className="text-center sm:text-left text-lg sm:text-xl md:text-2xl">Tasas de Cambio en Cuba</h1>
-					<button
-						onClick={() => setShowModal(true)}
-						className="text-white hover:opacity-80 transition-opacity p-2 rounded-lg bg-white/10 backdrop-blur-sm hover:bg-white/20"
-						aria-label="Código iframe"
-						title="Obtener código iframe"
-					>
-						<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-						</svg>
-					</button>
+					{!noCode && (
+						<button
+							onClick={() => setShowModal(true)}
+							className="text-white hover:opacity-80 transition-opacity p-2 rounded-lg bg-white/10 backdrop-blur-sm hover:bg-white/20"
+							aria-label="Código iframe"
+							title="Obtener código iframe"
+						>
+							<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-7 sm:w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+							</svg>
+						</button>
+					)}
 				</div>
 				<div className="flex-1 flex flex-col items-center justify-center px-2 sm:px-4">
 					<div className="flex justify-center items-center flex-wrap gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6">
