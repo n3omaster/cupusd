@@ -25,29 +25,14 @@ export async function GET() {
 					textAlign: 'center',
 				}}
 			>
-				<div
-					style={{
-						color: 'white',
-						fontSize: 70,
-					}}
-				>
+				<div style={{ color: 'white', fontSize: 70 }}>
 					Tasa de cambio CUP
 				</div>
-				<div
-					style={{
-						color: 'white',
-						display: 'flex',
-						fontSize: 180,
-						fontWeight: 900,
-					}}
-				>
+				<div style={{ color: 'white', display: 'flex', fontSize: 180, fontWeight: 900 }}>
 					$ {cup}
 				</div>
 			</div>
 		),
-		{
-			width: 1200,
-			height: 600,
-		}
+		{ width: 1200, height: 600, }
 	)
 }

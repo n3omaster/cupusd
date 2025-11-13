@@ -102,7 +102,7 @@ export default function Home() {
 							</a>
 						</p>
 					</div>
-					<h2 className="text-7xl sm:text-8xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-extrabold text-white text-center break-all">${value}</h2>
+					<h2 className="text-6xl sm:text-8xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-extrabold text-white text-center break-all">${value}</h2>
 				</div>
 
 				<div className='flex flex-col sm:flex-row justify-between gap-2 sm:gap-0 text-xs sm:text-sm md:text-base'>
