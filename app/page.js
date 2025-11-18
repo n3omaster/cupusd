@@ -97,16 +97,16 @@ export default function Home() {
 				<div className="flex-1 flex flex-col items-center justify-center px-2 sm:px-4">
 					<div className="flex justify-center items-center flex-wrap gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6">
 						<p className='text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white font-black flex flex-wrap justify-center items-center gap-2 sm:gap-3 md:gap-4'>
-							<a href="javascript:void(0)" onClick={() => setCoin("CUP")} className={`${coin === "CUP" ? "" : "opacity-40 blur-sm"} text-white transition-all hover:opacity-80 whitespace-nowrap`}>
+							<a href="javascript:void(0)" onClick={() => setCoin("CUP")} className={`${coin === "CUP" ? "" : "opacity-70 blur-xs"} text-white transition-all hover:opacity-80 whitespace-nowrap`}>
 								CUP
 							</a>
-							<a href="javascript:void(0)" onClick={() => setCoin("MLC")} className={`${coin === "MLC" ? "" : "opacity-40 blur-sm"} text-white transition-all hover:opacity-80 whitespace-nowrap`}>
+							<a href="javascript:void(0)" onClick={() => setCoin("MLC")} className={`${coin === "MLC" ? "" : "opacity-70 blur-xs"} text-white transition-all hover:opacity-80 whitespace-nowrap`}>
 								MLC
 							</a>
-							<a href="javascript:void(0)" onClick={() => setCoin("CLASICA")} className={`${coin === "CLASICA" ? "" : "opacity-40 blur-sm"} text-white transition-all hover:opacity-80 whitespace-nowrap`}>
+							<a href="javascript:void(0)" onClick={() => setCoin("CLASICA")} className={`${coin === "CLASICA" ? "" : "opacity-70 blur-xs"} text-white transition-all hover:opacity-80 whitespace-nowrap`}>
 								CLASICA
 							</a>
-							<a href="javascript:void(0)" onClick={() => setCoin("ETECSA")} className={`${coin === "ETECSA" ? "" : "opacity-40 blur-sm"} text-white transition-all hover:opacity-80 whitespace-nowrap`}>
+							<a href="javascript:void(0)" onClick={() => setCoin("ETECSA")} className={`${coin === "ETECSA" ? "" : "opacity-70 blur-xs"} text-white transition-all hover:opacity-80 whitespace-nowrap`}>
 								ETECSA
 							</a>
 						</p>
