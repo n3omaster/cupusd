@@ -37,6 +37,11 @@ export default function Home() {
 			const number = Number.parseFloat(randomize(first.value, 0.005)).toFixed(3)
 			setValue(number)
 			number < average ? setBgColor('bg-malachite') : setBgColor('bg-crimson')
+		} else if (coin === 'ETECSA') {
+			const { first, average } = averageData(data.etecsaHistory)
+			const number = Number.parseFloat(randomize(first.value, 0.5)).toFixed(2)
+			setValue(number)
+			number < average ? setBgColor('bg-malachite') : setBgColor('bg-crimson')
 		}
 	}
 
@@ -100,6 +105,9 @@ export default function Home() {
 							</a>
 							<a href="javascript:void(0)" onClick={() => setCoin("CLASICA")} className={`${coin === "CLASICA" ? "" : "opacity-40 blur-sm"} text-white transition-all hover:opacity-80 whitespace-nowrap`}>
 								CLASICA
+							</a>
+							<a href="javascript:void(0)" onClick={() => setCoin("ETECSA")} className={`${coin === "ETECSA" ? "" : "opacity-40 blur-sm"} text-white transition-all hover:opacity-80 whitespace-nowrap`}>
+								ETECSA
 							</a>
 						</p>
 					</div>
