@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { randomize, averageData } from './utils/helpers'
 
+// Home page
 export default function Home() {
 
 	const searchParams = useSearchParams()

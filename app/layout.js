@@ -4,16 +4,16 @@ import './globals.css'
 const barlow = Barlow({ weight: ['500', '800', '900'], subsets: ['latin'] })
 
 export const metadata = {
-	title: 'Tasa de cambio CUP y MLC de Cuba en tiempo real',
-	description: 'Obtén la tasa de cambio CUP y MLC de Cuba en tiempo real',
-	keywords: ['Cambio CUP', 'Tasa CUP USD', 'Cambio CUP Cuba'],
+	title: 'Tasa de cambio CUP, MLC, CLASICA y ETECSA en tiempo real',
+	description: 'Obtén la tasa de cambio CUP, MLC, CLASICA y ETECSA de Cuba en tiempo real',
+	keywords: ['Cambio CUP', 'Tasa CUP USD', 'Cambio MLC USD', 'Cambio CLASICA USD', 'Cambio ETECSA USD', 'Cambio CUP Cuba', 'Cambio MLC Cuba', 'Cambio CLASICA Cuba', 'Cambio ETECSA Cuba'],
 	creator: 'Erich Garcia Cruz',
 	metadataBase: new URL('https://www.cambiocup.com'),
 	openGraph: {
-		title: 'Tasa de cambio CUP y MLC de Cuba en tiempo real',
-		description: 'Obtén la tasa de cambio CUP y MLC de Cuba en tiempo real',
+		title: 'Tasa de cambio CUP, MLC, CLASICA y ETECSA de Cuba en tiempo real',
+		description: 'Obtén la tasa de cambio CUP, MLC, CLASICA y ETECSA de Cuba en tiempo real',
 		url: 'https://www.cambiocup.com',
-		siteName: 'CAMBIO CUP',
+		siteName: 'Cambiocup.com',
 		images: [
 			{
 				url: 'https://www.cambiocup.com/api/og',
