@@ -1,11 +1,12 @@
-// Given a number, return the number with a random small variation of 0.1%
+// Given a number, return the number with a random small variation
+// deep represents the percentage variation (e.g., 0.5 = 0.5% variation)
 // This is to simulate the price fluctuation
-const randomize = (num, deep = 1) => {
-	const random = Math.random() * deep
-	return num - deep + random
+const randomize = (num, deep = 0.1) => {
+	// Calculate variation as percentage: -deep/2 to +deep/2
+	const variation = (Math.random() - 0.5) * deep / 100
+	return num * (1 + variation)
 }
 
-// lets creaate a function where gets an array of objects and do the following things:
 // take the first object.value and store it in a variable
 // take the rest of the objects and create a average of the object.value
 // return both values

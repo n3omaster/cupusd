@@ -50,23 +50,21 @@ export default function Home() {
 		}
 	}
 
+	console.log(coin, value)
+
 	// fetch the value of CUP from DB and populate the value and the color based on the trending from the last 24 hours, cache this value for 5 mins
 	useEffect(() => {
 		getData()
 		OneSignal.init({ appId: '04dffeef-fbcd-4c21-95fc-eb358400eff2' });
 		const interval = setInterval(() => {
 			getData()
-		}, 5000)
+		}, 4000)
 		return () => { clearInterval(interval) }
 	}, [coin])
 
 	// Cerrar modal con tecla Escape
 	useEffect(() => {
-		const handleEscape = (e) => {
-			if (e.key === 'Escape' && showModal) {
-				setShowModal(false)
-			}
-		}
+		const handleEscape = (e) => { if (e.key === 'Escape' && showModal) { setShowModal(false) } }
 		window.addEventListener('keydown', handleEscape)
 		return () => window.removeEventListener('keydown', handleEscape)
 	}, [showModal])
