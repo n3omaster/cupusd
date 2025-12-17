@@ -16,12 +16,16 @@ export async function GET() {
 	const response4 = await fetch('https:/api.qvapay.com/p2p/completed_pairs_average?coin=ETECSA')
 	const etecsaHistory = await response4.json()
 
-	const { cup, mlc, clasica, etecsa } = await saveCoinData(
+	const response5 = await fetch('https:/api.qvapay.com/p2p/completed_pairs_average?coin=BANDECPREPAGO')
+	const bandecprepagoHistory = await response5.json()
+
+	const { cup, mlc, clasica, etecsa, bandecprepago } = await saveCoinData(
 		(cupHistory.average_buy + cupHistory.average_sell) / 2,
 		(mlcHistory.average_buy + mlcHistory.average_sell) / 2,
 		(clasicaHistory.average_buy + clasicaHistory.average_sell) / 2,
-		(etecsaHistory.average_buy + etecsaHistory.average_sell) / 2)
+		(etecsaHistory.average_buy + etecsaHistory.average_sell) / 2,
+		(bandecprepagoHistory.average_buy + bandecprepagoHistory.average_sell) / 2)
 
 	const randomNumber = Math.random() * 1000
-	return NextResponse.json({ cup, mlc, clasica, etecsa, randomNumber })
+	return NextResponse.json({ cup, mlc, clasica, etecsa, bandecprepago, randomNumber })
 }
