@@ -42,6 +42,11 @@ export default function Home() {
 			const number = Number.parseFloat(randomize(first.value, 0.5)).toFixed(2)
 			setValue(number)
 			number < average ? setBgColor('bg-malachite') : setBgColor('bg-crimson')
+		} else if (coin === 'TROPICAL') {
+			const { first, average } = averageData(data.bandecprepagoHistory)
+			const number = Number.parseFloat(randomize(first.value, 0.5)).toFixed(2)
+			setValue(number)
+			number < average ? setBgColor('bg-malachite') : setBgColor('bg-crimson')
 		}
 	}
 
@@ -108,6 +113,9 @@ export default function Home() {
 							</a>
 							<a href="javascript:void(0)" onClick={() => setCoin("ETECSA")} className={`${coin === "ETECSA" ? "" : "opacity-70 blur-xs"} text-white transition-all hover:opacity-80 whitespace-nowrap`}>
 								ETECSA
+							</a>
+							<a href="javascript:void(0)" onClick={() => setCoin("TROPICAL")} className={`${coin === "TROPICAL" ? "" : "opacity-70 blur-xs"} text-white transition-all hover:opacity-80 whitespace-nowrap`}>
+								TROPICAL
 							</a>
 						</p>
 					</div>

@@ -3,6 +3,6 @@ import { getCoinData } from '@/lib/supabase'
 
 // Get the data for the home page
 export async function GET() {
-	const { cupHistory, mlcHistory, clasicaHistory, etecsaHistory } = await getCoinData()
-	return NextResponse.json({ cupHistory, mlcHistory, clasicaHistory, etecsaHistory })
+	const { cupHistory, mlcHistory, clasicaHistory, etecsaHistory, bandecprepagoHistory } = await getCoinData()
+	return NextResponse.json({ cupHistory, mlcHistory, clasicaHistory, etecsaHistory, bandecprepagoHistory })
 }
